@@ -1,0 +1,49 @@
+{
+  "width": 1920,
+  "height": 1080,
+  "fps": 60,
+  "duration": 15,
+  "bpm": 128,
+  "samples": 6,
+  "scenes": [
+    { "id": "intro",   "beat": 0,  "label": "00", "title": "인트로" },
+    { "id": "type",    "beat": 8,  "label": "01", "title": "키네틱 타이포그래피" },
+    { "id": "shape",   "beat": 12, "label": "02", "title": "셰이프 & 리듬" },
+    { "id": "space",   "beat": 16, "label": "03", "title": "공간 & 깊이" },
+    { "id": "data",    "beat": 20, "label": "04", "title": "데이터 시각화" },
+    { "id": "montage", "beat": 24, "label": "05", "title": "몽타주" },
+    { "id": "end",     "beat": 28, "label": "06", "title": "엔드 카드" }
+  ],
+  "cues": {
+    "impacts": [
+      { "beat": 6,  "power": 0.55 },
+      { "beat": 8,  "power": 1.0 },
+      { "beat": 16, "power": 0.45 },
+      { "beat": 24, "power": 0.6 },
+      { "beat": 28, "power": 1.0 }
+    ],
+    "typing": [
+      { "beat": 2,    "stagger": 0.075, "text": "모든 것은" },
+      { "beat": 4,    "stagger": 0.055, "text": "움직일 때" },
+      { "beat": 9.25, "stagger": 0.058, "text": "글자가 춤을 춘다" },
+      { "beat": 29.75, "stagger": 0.045, "text": "모션 그래픽 디자이너" }
+    ],
+    "whooshes": [
+      { "beat": 4,  "len": 0.35 },
+      { "beat": 12, "len": 0.34 },
+      { "beat": 16, "len": 0.5 },
+      { "beat": 20, "len": 0.26 }
+    ],
+    "risers": [
+      { "from": 5,  "to": 8 },
+      { "from": 14, "to": 16 },
+      { "from": 26, "to": 27.75 }
+    ],
+    "glitches": [
+      { "beat": 24, "len": 0.22 }
+    ],
+    "gaps": [
+      { "from": 27.75, "to": 28 }
+    ]
+  }
+}

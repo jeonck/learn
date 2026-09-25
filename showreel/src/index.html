@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Claude 모션 쇼릴</title>
+    <link rel="stylesheet" href="../node_modules/pretendard/dist/web/variable/pretendardvariable.css" />
+    <link rel="stylesheet" href="../node_modules/@fontsource/black-han-sans/index.css" />
+    <link rel="stylesheet" href="../node_modules/@fontsource/jetbrains-mono/400.css" />
+    <link rel="stylesheet" href="../node_modules/@fontsource/jetbrains-mono/700.css" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #000;
+        overflow: hidden;
+      }
+      canvas#out {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        object-fit: contain;
+      }
+      #hint {
+        position: fixed;
+        left: 50%;
+        bottom: 24px;
+        transform: translateX(-50%);
+        color: #f3efe6;
+        font: 14px 'JetBrains Mono', monospace;
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="out" width="1920" height="1080"></canvas>
+    <div id="hint">클릭하면 사운드와 함께 재생</div>
+    <script>
+      if (new URLSearchParams(location.search).get('mode') === 'render') document.getElementById('hint').remove();
+    </script>
+    <script src="post.js"></script>
+    <script src="reel.js"></script>
+  </body>
+</html>
