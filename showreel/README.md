@@ -25,7 +25,8 @@
 ![기술 구성도](dist/tech-stack.png)
 
 ```
-src/timeline.json ──┬─► src/reel.js ─► (서브프레임 6장 누적 = 모션 블러) ─► src/post.js (WebGL)
+src/timeline.json ──┬─► src/reel.js ◄── src/content.json (문구·색·수치)
+                    │   src/reel.js ─► (서브프레임 6장 누적 = 모션 블러) ─► src/post.js (WebGL)
   BPM·씬·큐 공유    │        헤드리스 Chromium 4개가 병렬로 프레임 캡처 ─► ffmpeg ─► out/video.mp4
                     └─► scripts/audio.py (numpy 신스) ─► out/audio.wav ─────────────┴─► dist/showreel.mp4
 ```
@@ -40,17 +41,45 @@ src/timeline.json ──┬─► src/reel.js ─► (서브프레임 6장 누�
 ```bash
 npm install            # 폰트(Pretendard, Black Han Sans, JetBrains Mono) + Playwright
 pip install numpy imageio-ffmpeg   # 시스템 ffmpeg가 있으면 imageio-ffmpeg는 생략 가능
-npm run build          # 사운드 → 렌더 → 인코딩 → dist/showreel.mp4 (4코어 기준 ~12분)
+npm run draft          # 초안: 960×540·30fps·서브프레임 1장 → out/draft.mp4 (약 1분)
+npm run build          # 최종: 1080p60·서브프레임 6장·CRF 21 → dist/showreel.mp4 (약 12분)
 ```
+
+두 명령 모두 사운드 합성 → 렌더 → 인코딩 + 오디오 먹싱을 **한 번의 인코딩**으로 끝낸다.
+수정할 때는 초안으로 확인하고, 최종 렌더는 마지막에 한 번만 돌린다.
+
+| 작업 | 명령 | 4코어 실측 |
+| --- | --- | --- |
+| 전체 초안 (사운드 포함) | `npm run draft` | 62초 |
+| 한 장면만 초안 | `node scripts/render.mjs --scene space --draft --audio out/audio.wav` | 20초 |
+| 한 장면만 최종 품질 | `node scripts/render.mjs --scene type --audio out/audio.wav` | 59초 |
+| 전체 최종 | `npm run build` | 약 12분 |
+
+장면 id 는 `timeline.json` 의 `scenes` (intro, type, shape, space, data, montage, end).
 
 그 밖에:
 
 ```bash
-npm run preview                              # 브라우저 실시간 재생 (클릭하면 사운드)
-node scripts/render.mjs --stills 4.2,9.1     # 특정 시점 스틸 → out/stills/
-bash scripts/sheet.sh 이름 2x2 4.2,9.1,11,14  # 검수용 컨택트 시트 → out/sheet-이름.png
-npm run audio                                # 사운드만 다시 합성
+npm run preview                                      # 브라우저 실시간 재생 (클릭하면 사운드)
+node scripts/render.mjs --stills 4.2,9.1 [--draft]   # 특정 시점 스틸 → out/stills/
+bash scripts/sheet.sh 이름 2x2 4.2,9.1,11,14 --draft  # 저해상도 컨택트 시트 → out/sheet-이름.png
+npm run audio                                        # 사운드만 다시 합성
 ```
+
+## 내용 바꾸기 — `src/content.json`
+
+문구·팔레트·수치는 코드가 아니라 `src/content.json` 에 있다. 다른 영상을 만들 때는 이 파일부터 고친다.
+
+| 키 | 내용 |
+| --- | --- |
+| `palette` | 색 5개. 이름은 역할 자리다 — `ink` 어두운 배경, `paper` 밝은 글자, `coral`·`acid`·`cobalt` 강조 1~3 |
+| `text` | 장면별 문구 (인트로 `a`·`b`·`c`, 타이포 `rows`, 몽타주 `montage`, 엔드 카드 `name`·`tag`·`eng`·`slogan` …) |
+| `text.stats` | 데이터 장면의 카운터 3개 (값·자릿수·단위·라벨) |
+| `text.chartValue` | 라인 차트 값 태그 형식 (접두·배율·접미) |
+| `chart.bars` / `chart.line` | 막대 12개·라인 12점, 0~1 비율 |
+| `shapeTags` | 셰이프 장면의 동작 라벨 |
+
+타이밍(BPM·장면 시작 박자·효과음 큐)은 `src/timeline.json`, 그리는 방법은 `src/reel.js` 에 있다.
 
 Playwright용 Chromium은 따로 받지 않고 시스템에 설치된 것을 쓴다
 (`PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install`).

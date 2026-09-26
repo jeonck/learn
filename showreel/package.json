@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "audio": "python3 scripts/audio.py",
+    "draft": "bash scripts/build.sh --draft",
     "render": "node scripts/render.mjs",
     "build": "bash scripts/build.sh",
     "preview": "node scripts/serve.mjs"

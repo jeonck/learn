@@ -5,17 +5,13 @@
   'use strict';
 
   let TL, W, H, FPS, BEAT;
+  let SCALE = 1; // 출력 해상도 배율. 좌표는 항상 1920×1080 기준으로 쓰고 prep()에서 줄인다
   const b = (n) => n * BEAT;
   const TAU = Math.PI * 2;
 
   // ───────────────────────── palette & type
-  const C = {
-    ink: '#0B0B10',
-    paper: '#F3EFE6',
-    coral: '#FF4A2A',
-    acid: '#DDFF3C',
-    cobalt: '#2B4DFF',
-  };
+  // 팔레트·문구·수치는 src/content.json 에서 읽는다 (applyContent)
+  let C, T, RGB, flyB, BARS, LINE, TAGS;
   const F = {
     display: '"Black Han Sans"',
     sans: '"Pretendard Variable"',
@@ -79,7 +75,6 @@
   const stepped = (beats, snap = 0.55) => Math.floor(beats) + E.outExpo(clamp((beats % 1) / snap));
 
   const hexRgb = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
-  const RGB = Object.fromEntries(Object.entries(C).map(([k, v]) => [k, hexRgb(v)]));
   const rgba = (key, a) => `rgba(${RGB[key][0]},${RGB[key][1]},${RGB[key][2]},${a})`;
   const mixc = (k1, k2, t) => {
     const a = RGB[k1];
@@ -145,44 +140,6 @@
     ctx.fill();
   };
 
-  // ───────────────────────── strings (폰트 프리로드에도 사용)
-  const T = {
-    a: '모든 것은',
-    b: '움직일 때',
-    c: '살아난다',
-    band: '글자가 춤을 춘다',
-    badge: '모션 · 그래픽 · 디자인 · 타이밍 · ',
-    rows: [
-      { s: '타이밍 · 리듬 · 움직임 · ', st: 'stroke' },
-      { s: 'MOTION · DESIGN · REEL · ', st: 'fill' },
-      { s: '키네틱 · 타이포그래피 · ', st: 'stroke' },
-      { s: '움직임 · 리듬 · 타이밍 · ', st: 'paper' },
-      { s: 'EASE · OVERSHOOT · SNAP · ', st: 'fill' },
-      { s: '모션 · 그래픽 · 디자인 · ', st: 'stroke' },
-      { s: 'KEYFRAME · CURVE · FLOW · ', st: 'fill' },
-    ],
-    space: '공간',
-    stats: [
-      { v: 15, d: 2, unit: '초', label: '러닝타임' },
-      { v: 900, d: 3, unit: '프레임', label: '60fps 프레임 단위 렌더' },
-      { v: 128, d: 3, unit: 'BPM', label: '비트에 맞춘 편집' },
-    ],
-    chart: '임팩트 지수',
-    montage: [
-      { k: '기획', e: 'PLANNING', bg: 'ink', fg: 'paper', st: 'fill' },
-      { k: '스토리보드', e: 'STORYBOARD', bg: 'acid', fg: 'ink', st: 'stack' },
-      { k: '디자인', e: 'DESIGN', bg: 'coral', fg: 'ink', st: 'echo' },
-      { k: '애니메이션', e: 'ANIMATION', bg: 'paper', fg: 'cobalt', st: 'split' },
-      { k: '3D', e: 'DIMENSION', bg: 'cobalt', fg: 'acid', st: 'huge' },
-      { k: '컴포지팅', e: 'COMPOSITING', bg: 'ink', fg: 'coral', st: 'stripes' },
-    ],
-    stutter: '모션',
-    name: '클로드',
-    tag: '모션 그래픽 디자이너',
-    eng: 'MOTION GRAPHICS DESIGNER — SHOWREEL 2026',
-    slogan: '움직임으로 이야기합니다',
-    hud: "CLAUDE — MOTION REEL '26",
-  };
   function allText() {
     const parts = [];
     const walk = (v) => {
@@ -235,13 +192,6 @@
   }
 
   // ═════════════════════════ SCENE 00 — 인트로 (b0–b8)
-  const introR = rng(7);
-  const flyB = [...T.b].map(() => ({
-    dx: (introR() - 0.5) * 1500,
-    dy: (introR() - 0.5) * 900,
-    rot: (introR() - 0.5) * 5,
-    s0: 0.15 + introR() * 0.3,
-  }));
 
   function sceneIntro(ctx, t) {
     fillBg(ctx, C.ink);
@@ -594,13 +544,6 @@
     ['star', 'coral', 'pulse'], ['diamond', 'cobalt', 'morph'], ['circle', 'ink', 'center'], ['square', 'cobalt', 'morph'], ['tri', 'coral', 'spin'],
     ['plus', 'cobalt', 'bounce'], ['circle', 'coral', 'bounce'], ['pill', 'ink', 'pulse'], ['ring', 'coral', 'spin'], ['diamond', 'ink', 'morph'],
   ];
-  const TAGS = {
-    bounce: 'SQUASH & STRETCH',
-    spin: 'ROTATE 90°',
-    morph: 'SHAPE MORPH',
-    pulse: 'SCALE PULSE',
-    center: 'ANCHOR',
-  };
 
   function shapePath(ctx, type, size, m) {
     const A = UNIT[type];
@@ -920,12 +863,6 @@
   }
 
   // ═════════════════════════ SCENE 04 — 데이터 시각화 (b20–b24)
-  const dataR = rng(21);
-  const BARS = Array.from({ length: 12 }, (_, i) =>
-    clamp(0.2 + 0.68 * (i / 11) ** 1.25 + (dataR() - 0.5) * 0.2, 0.12, 0.93)
-  );
-  BARS[11] = 0.95;
-  const LINE = BARS.map((v, i) => clamp(v * 0.75 + 0.12 + Math.sin(i * 1.7) * 0.05, 0.05, 0.98));
 
   function odometer(ctx, value, digits, x, y, size) {
     setFont(ctx, F.sans, size, 800);
@@ -1089,7 +1026,8 @@
       ctx.fillStyle = C.acid;
       disc(ctx, hx, hy, 12);
       // 값 태그
-      const label = `+${Math.round(hv * 420)}%`;
+      const vl = T.chartValue;
+      const label = `${vl.prefix}${Math.round(hv * vl.scale)}${vl.suffix}`;
       setFont(ctx, F.mono, 24, 700);
       const tw = ctx.measureText(label).width + 28;
       ctx.fillStyle = C.ink;
@@ -1468,7 +1406,7 @@
       for (let i = 0; i < n; i++) {
         const p = E.inExpo(inv(i * 0.018, i * 0.018 + 0.22, tt));
         const dx = (i % 2 ? 1 : -1) * W * p;
-        ctx.drawImage(bufA, 0, i * sh, W, sh, dx, i * sh, W, sh);
+        ctx.drawImage(bufA, 0, i * sh * SCALE, W * SCALE, sh * SCALE, dx, i * sh, W, sh);
       }
       return;
     }
@@ -1492,7 +1430,7 @@
     return sceneEnd(ctx, t - b(28), t);
   }
   function prep(ctx) {
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.setTransform(SCALE, 0, 0, SCALE, 0, 0);
     ctx.globalAlpha = 1;
     ctx.globalCompositeOperation = 'source-over';
     ctx.textAlign = 'center';
@@ -1523,9 +1461,27 @@
     }
   }
 
+  // ───────────────────────── content
+  function applyContent(ct) {
+    C = ct.palette;
+    RGB = Object.fromEntries(Object.entries(C).map(([k, v]) => [k, hexRgb(v)]));
+    T = ct.text;
+    TAGS = ct.shapeTags;
+    const introR = rng(7);
+    flyB = [...T.b].map(() => ({
+      dx: (introR() - 0.5) * 1500,
+      dy: (introR() - 0.5) * 900,
+      rot: (introR() - 0.5) * 5,
+      s0: 0.15 + introR() * 0.3,
+    }));
+    BARS = ct.chart.bars;
+    LINE = ct.chart.line;
+  }
+
   // ───────────────────────── boot
   async function boot() {
     TL = await (await fetch('timeline.json')).json();
+    applyContent(await (await fetch('content.json')).json());
     W = TL.width;
     H = TL.height;
     FPS = TL.fps;
@@ -1540,10 +1496,12 @@
     await document.fonts.ready;
     buildPoints();
 
+    const q = new URLSearchParams(location.search);
+    SCALE = parseFloat(q.get('scale') || '1');
     const mk = () => {
       const c = document.createElement('canvas');
-      c.width = W;
-      c.height = H;
+      c.width = Math.round(W * SCALE);
+      c.height = Math.round(H * SCALE);
       return c;
     };
     const work = mk();
@@ -1552,10 +1510,12 @@
     const wctx = work.getContext('2d');
     const actx = acc.getContext('2d');
     const out = document.getElementById('out');
-    const post = new window.Post(out, W, H);
+    out.width = work.width;
+    out.height = work.height;
+    const post = new window.Post(out, work.width, work.height);
 
-    function frameAt(tc, samples) {
-      const shutter = 0.5 / FPS; // 180° 셔터
+    function frameAt(tc, samples, fps = FPS) {
+      const shutter = 0.5 / fps; // 180° 셔터
       for (let k = 0; k < samples; k++) {
         const ts = Math.max(0, Math.min(TL.duration - 1e-4, tc + ((k + 0.5) / samples - 0.5) * shutter));
         drawFrame(wctx, ts);
@@ -1563,16 +1523,18 @@
         actx.drawImage(work, 0, 0);
       }
       actx.globalAlpha = 1;
-      post.render(acc, fx(tc), tc);
+      const f = fx(tc); // 픽셀 단위 효과는 출력 배율에 맞춘다
+      f.ca *= SCALE;
+      f.dir = [f.dir[0] * SCALE, f.dir[1] * SCALE];
+      post.render(acc, f, tc);
     }
 
     window.REEL = { TL, fx, drawFrame };
-    window.renderFrame = (f, samples = TL.samples) => {
-      frameAt(f / FPS, samples);
+    window.renderFrame = (f, samples = TL.samples, fps = FPS) => {
+      frameAt(f / fps, samples, fps);
       return out.toDataURL('image/png');
     };
 
-    const q = new URLSearchParams(location.search);
     const mode = q.get('mode') || 'play';
     if (mode === 'play') {
       if (q.has('t')) {
