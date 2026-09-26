@@ -36,3 +36,23 @@ npm install && pip install numpy imageio-ffmpeg
 npm run draft -- --content content.en.json   # 960×540·30fps draft → out/draft-en.mp4 (~80 s)
 npm run build -- --content content.en.json   # final 1080p60 → dist/showreel-en.mp4 (~14 min on 4 cores)
 ```
+
+## Showreel prompts shared on Threads (collected 2026-09)
+
+Examples found on Threads by searching "쇼릴" (showreel), "쇼릴 프롬프트" and "모션그래픽 프롬프트", picked because the
+prompt was public and the result was well received. Full prompts are behind each link; only the gist and why it works are here.
+
+| Example | Prompt gist | Why it works |
+| --- | --- | --- |
+| [@pinksoldiersvlog](https://www.threads.com/@pinksoldiersvlog/post/Ddt090_E5KV) — Claude Code Opus 5.5, one shot | One sentence: a dynamic 15-second Korean motion-graphics video that shows what an amazing motion designer you are, like a résumé showreel, give it everything | The role makes the model prove its skill; "résumé showreel" carries the genre's conventions (short, punchy, beat-synced) in one word. Only length, language and tone are fixed; everything else is left to the model |
+| [@ai_sync_club](https://www.threads.com/@ai_sync_club/post/Ddt00M6k8sD) — Claude + Blender | 60fps, 132 BPM, 8 bars; four 3D cards; 5-colour palette; 8 shots in order; only two approved lines of copy; new music and SFX on the beat | Time is defined in beats, the shot list stands in for a storyboard, the palette is limited by role name, and pinned copy prevents typos and invented claims |
+| [@doeun_company](https://www.threads.com/@doeun_company/post/DdwJM-yCI5u) — Opus 5.5 | A Notion portfolio link plus "make a motion-graphics showreel introducing me" | The source material supplies the content and one line sets the form, so there is little room for wrong facts. The resulting pipeline (code animation → frame capture at 60fps → sub-frame motion blur → beat-aligned synthesized sound) matches this repo's |
+| [@prompt_what](https://www.threads.com/@prompt_what/post/DdOAI1cis07) — Astra | First a 6×6 material sheet (characters, props, type, ornaments, spaced apart), then "make a motion-graphics demo from these materials" | Style is pinned by an image instead of words, and separated elements are easy to animate individually, so fewer revision rounds |
+| [@kirin.cookie](https://www.threads.com/@kirin.cookie/post/Dc8V7Tljbdn) — Google Omni | Black background, white lines, basic shapes; 15-second short-form motivational piece; one mint accent colour; English copy and music | Tight limits on colour (mono plus one accent) and form (basic shapes) look polished on any model |
+
+What they share:
+
+- To pull out the model's best, keep it short and set the bar high (#1). When brand or factual accuracy matters, pin BPM, shots, palette and copy (#2).
+- Give length in BPM and bars rather than seconds, so the edit locks to the beat.
+- Supply content as material (a portfolio, a material sheet) and let the prompt focus on form.
+- Asking for "no external assets, compose the music too" gives a self-contained, copyright-free result.
