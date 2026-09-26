@@ -18,7 +18,7 @@
 
 [![CK Jeon — Platform Reel](dist/poster-en.jpg)](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel-en.mp4)
 
-▶ [영상 보기](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel-en.mp4) · ⬇ [MP4 다운로드 (18MB)](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel-en.mp4) · 🇺🇸 [English README](README.en.md) · 📘 [영문판 제작 과정 (AI Usecases)](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/#같은-엔진으로-영문-경력-쇼릴--내용만-바꿔-한-편-더)
+▶ [영상 보기](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel-en.mp4) · ⬇ [MP4 다운로드 (18MB)](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel-en.mp4) · 🇺🇸 [English README](README.en.md) · 📘 [영문판 제작 과정 (AI Usecases)](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/#english-career-reel)
 
 ![English contact sheet](dist/contact-sheet-en.jpg)
 
