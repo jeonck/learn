@@ -38,4 +38,5 @@ via spectrogram/RMS inspection.
   (slice wipe, whip pan) draw both neighbouring scenes. Camera shake and the HUD are applied in
   `drawFrame`; `fx(t)` produces the per-frame uniforms for the WebGL pass in `src/post.js`.
 - Timings inside scenes are expressed in beats via `b(n)` so edits stay on the grid.
-- `node_modules/` and `out/` are git-ignored; only sources and `dist/showreel.mp4` are committed.
+- `node_modules/` and `out/` are git-ignored; only sources and the deliverables in `dist/` (the MP4, its
+  contact sheet, and the `tech-stack.png` pipeline diagram) are committed.

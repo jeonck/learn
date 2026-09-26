@@ -19,6 +19,8 @@
 
 ## 파이프라인
 
+![기술 구성도](dist/tech-stack.png)
+
 ```
 src/timeline.json ──┬─► src/reel.js ─► (서브프레임 6장 누적 = 모션 블러) ─► src/post.js (WebGL)
   BPM·씬·큐 공유    │        헤드리스 Chromium 4개가 병렬로 프레임 캡처 ─► ffmpeg ─► out/video.mp4
