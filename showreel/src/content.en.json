@@ -1,0 +1,162 @@
+{
+  "_comment": "English career reel for CK Jeon. Every claim comes from the resume provided (Sep 2026). Contact details are deliberately left out: the repo is public.",
+  "palette": {
+    "ink": "#0B0B10",
+    "paper": "#F3EFE6",
+    "coral": "#FF4A2A",
+    "acid": "#DDFF3C",
+    "cobalt": "#2B4DFF"
+  },
+  "sceneTitles": ["INTRO", "SKILL STACK", "AUTOMATION", "KUBERNETES", "IMPACT", "EXPERTISE", "SIGNATURE"],
+  "typing": [
+    {
+      "beat": 2,
+      "stagger": 0.07,
+      "text": "Platforms"
+    },
+    {
+      "beat": 4,
+      "stagger": 0.05,
+      "text": "that never"
+    },
+    {
+      "beat": 9.25,
+      "stagger": 0.04,
+      "text": "Infrastructure as Code"
+    },
+    {
+      "beat": 29.0,
+      "stagger": 0.018,
+      "text": "Platform Engineering Leader"
+    }
+  ],
+  "text": {
+    "a": "Platforms",
+    "b": "that never",
+    "c": "SLEEP.",
+    "band": "Infrastructure as Code",
+    "bandHighlight": [18, 21],
+    "badge": "PLATFORM · SRE · GITOPS · IaC · ",
+    "rows": [
+      {
+        "s": "KUBERNETES · TERRAFORM · GITOPS · ",
+        "st": "stroke"
+      },
+      {
+        "s": "PLATFORM ENGINEERING · SRE · ",
+        "st": "fill"
+      },
+      {
+        "s": "AWS · AZURE · HYBRID CLOUD · ",
+        "st": "stroke"
+      },
+      {
+        "s": "ARGOCD · GITLAB CI · GITHUB ACTIONS · ",
+        "st": "paper"
+      },
+      {
+        "s": "DATADOG · PROMETHEUS · GRAFANA · ",
+        "st": "fill"
+      },
+      {
+        "s": "PYTHON · FASTAPI · STREAMLIT · ",
+        "st": "stroke"
+      },
+      {
+        "s": "LLM INFRA · GPU · JUPYTER · ",
+        "st": "fill"
+      }
+    ],
+    "space": "K8S",
+    "stats": [
+      {
+        "v": 12,
+        "d": 2,
+        "unit": "+ YEARS",
+        "label": "PLATFORM & CLOUD INFRASTRUCTURE"
+      },
+      {
+        "v": 7,
+        "d": 1,
+        "unit": "CI/CD PIPELINES",
+        "label": "MODERNIZED WITH GITLAB + GITOPS"
+      },
+      {
+        "v": 30,
+        "d": 2,
+        "unit": "+ INCIDENTS",
+        "label": "INFRA INCIDENTS COORDINATED"
+      }
+    ],
+    "chart": "CAREER ARC · 2009 → 2026",
+    "montage": [
+      {
+        "k": "PLATFORM",
+        "e": "ENGINEERING",
+        "bg": "ink",
+        "fg": "paper",
+        "st": "fill"
+      },
+      {
+        "k": "KUBERNETES",
+        "e": "CLOUD NATIVE",
+        "bg": "acid",
+        "fg": "ink",
+        "st": "stack"
+      },
+      {
+        "k": "GITOPS",
+        "e": "ARGOCD · IaC",
+        "bg": "coral",
+        "fg": "ink",
+        "st": "echo"
+      },
+      {
+        "k": "AUTOMATE",
+        "e": "PYTHON · CI/CD",
+        "bg": "paper",
+        "fg": "cobalt",
+        "st": "split"
+      },
+      {
+        "k": "SRE",
+        "e": "99.99% AVAILABILITY",
+        "bg": "cobalt",
+        "fg": "acid",
+        "st": "huge"
+      },
+      {
+        "k": "AI INFRA",
+        "e": "GPU · LLM PLATFORMS",
+        "bg": "ink",
+        "fg": "coral",
+        "st": "stripes"
+      }
+    ],
+    "stutter": "SHIP",
+    "name": "CK",
+    "tag": "Platform Engineering Leader",
+    "eng": "CHANG KOOK JEON — PLATFORM & CLOUD INFRASTRUCTURE",
+    "slogan": "Developer platforms that accelerate software delivery.",
+    "hud": "CK JEON — PLATFORM REEL '26",
+    "chartValue": {
+      "prefix": "",
+      "scale": 1,
+      "suffix": "",
+      "axis": false,
+      "labels": ["2009 · INFRA OPS", "OPS · 24x7", "OPS · HA / DR", "2014 · QA TF LEAD", "QA · PERF TESTS", "QA · STRATEGY", "2018 · SRE LEAD", "SRE · KUBERNETES", "SRE · IaC", "SRE · GITOPS", "2025 · CLOUD AUDIT", "NOW · AI INFRA"]
+    },
+    "engTyping": [2.0, 2.6]
+  },
+  "shapeTags": {
+    "bounce": "SCALE",
+    "spin": "AUTOMATE",
+    "morph": "MIGRATE",
+    "pulse": "MONITOR",
+    "center": "CORE"
+  },
+  "chart": {
+    "bars": [0.18645824431441727, 0.22335020563197613, 0.2373906353356027, 0.3104972337527001, 0.38736028941022727, 0.5321913565824454, 0.5927718687966442, 0.5556520657666106, 0.6452683258433224, 0.7844054846431714, 0.741397935071524, 0.95],
+    "line": [0.25984368323581297, 0.3370958947466055, 0.28526592140036044, 0.30658219119813845, 0.4352258846146009, 0.5590678730680085, 0.529585167217806, 0.5058321937131063, 0.6469093351253166, 0.7281411421389092, 0.6279785767096652, 0.82505004870929]
+  }
+}

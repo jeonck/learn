@@ -4,9 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository layout
 
-- `showreel/` — a 15-second Korean motion-graphics showreel (1920×1080, 60fps) generated
-  entirely from code: visuals in Canvas 2D + a WebGL post pass, soundtrack synthesized in numpy.
-  The final deliverable is committed at `showreel/dist/showreel.mp4`.
+- `showreel/` — a 15-second motion-graphics showreel (1920×1080, 60fps) generated entirely from
+  code: visuals in Canvas 2D + a WebGL post pass, soundtrack synthesized in numpy. Two content
+  variants share one engine: Korean (`src/content.json` → `dist/showreel.mp4`) and an English career
+  reel for CK Jeon (`src/content.en.json` → `dist/showreel-en.mp4`).
 
 ## Commands (run inside `showreel/`)
 
@@ -17,6 +18,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Final build (1080p60·6 sub-frames·CRF 21, one encode with audio → `dist/showreel.mp4`):
   `npm run build` (~12 min on 4 cores).
 - Soundtrack only: `npm run audio` → `out/audio.wav`.
+- Another content variant: add `--content content.en.json` to `build.sh`/`npm run draft --`/`npm run build --`
+  or `render.mjs` (file lives in `src/`); outputs get a `-en` suffix and `audio.py --content` uses its typing cues.
 - One scene only: `node scripts/render.mjs --scene <id> [--draft] --audio out/audio.wav`
   (ids from `timeline.json` `scenes`; ~20 s draft, ~1 min final). Other flags: `--scale`, `--fps`,
   `--samples`, `--crf`, `--preset`, `--from/--to` (frames at the output fps), `--workers`, `--out`.
@@ -47,7 +50,11 @@ via spectrogram/RMS inspection.
 - `src/content.json` holds everything that is content rather than motion: the 5-colour palette (keys are
   role slots — `ink`, `paper`, `coral`, `acid`, `cobalt` — referenced by name throughout `reel.js`), all
   on-screen text, the data-scene stats, and chart values. `applyContent()` in `reel.js` loads it at boot.
-  For a new video, edit this file before touching `reel.js`.
+  For a new video, edit this file before touching `reel.js`. Optional keys let a variant override the
+  typing cues and scene titles (both also read by `audio.py`), the band highlight range, the end-card
+  English line's typing window, and the chart's per-point labels / numeric axis. Longer words are
+  auto-fitted in the montage. Every claim in `content.en.json` must come from the resume; contact
+  details stay out because the repo is public.
 - Scene code is written in 1920×1080 logical pixels. `?scale=` (render.mjs `--scale`/`--draft`) shrinks
   the canvases and `prep()` applies the scale as a transform; pixel-sized post effects (`ca`, `dir`) are
   scaled in `frameAt`. Any new code that addresses canvas pixels directly (e.g. `drawImage` source rects)

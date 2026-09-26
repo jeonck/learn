@@ -436,7 +436,7 @@
         const p = spring(t - t0, 2.4, 0.33);
         const hop = beatPulse(t - g.i * 0.022, b(10), b(12), 0.09, 2);
         glyph(ctx, g.ch, g.x, 6 - 26 * hop, {
-          fill: g.i >= 4 && g.i <= 5 ? C.coral : C.ink,
+          fill: g.i >= (T.bandHighlight || [4, 5])[0] && g.i <= (T.bandHighlight || [4, 5])[1] ? C.coral : C.ink,
           sc: p,
           rot: (1 - clamp(p)) * 0.6,
         });
@@ -946,7 +946,7 @@
     setFont(ctx, F.mono, 20, 700);
     const ha = E.outCubic(inv(0.1, 0.4, lt));
     ctx.fillStyle = rgba('paper', 0.8 * ha);
-    ctx.fillText(`${T.chart} — 2026`, X0, Y0 - 60);
+    ctx.fillText(T.chart, X0, Y0 - 60);
     ctx.setLineDash([4, 8]);
     ctx.lineWidth = 1.5;
     for (let k = 0; k <= 4; k++) {
@@ -961,7 +961,7 @@
       if (k === 0) ctx.setLineDash([4, 8]);
       setFont(ctx, F.mono, 14, 400);
       ctx.fillStyle = rgba('paper', 0.5 * gp);
-      ctx.fillText(String(k * 25), X1 + 16, y + 1);
+      if (T.chartValue.axis !== false) ctx.fillText(String(k * 25), X1 + 16, y + 1);
     }
     ctx.setLineDash([]);
     ctx.textAlign = 'center';
@@ -1027,7 +1027,9 @@
       disc(ctx, hx, hy, 12);
       // 값 태그
       const vl = T.chartValue;
-      const label = `${vl.prefix}${Math.round(hv * vl.scale)}${vl.suffix}`;
+      const label = vl.labels
+        ? vl.labels[Math.min(n - 1, Math.round(q))]
+        : `${vl.prefix}${Math.round(hv * vl.scale)}${vl.suffix}`;
       setFont(ctx, F.mono, 24, 700);
       const tw = ctx.measureText(label).width + 28;
       ctx.fillStyle = C.ink;
@@ -1056,13 +1058,19 @@
       fillBg(ctx, C[m.bg]);
       const fg = C[m.fg];
       const e = E.outExpo(clamp(u / 0.16));
-      const size = [...m.k].length > 3 ? 250 : m.st === 'huge' ? 620 : 300;
+      let size = [...m.k].length > 3 ? 250 : m.st === 'huge' ? 620 : 300;
       ctx.save();
       ctx.translate(cx, cy);
       const sc = lerp(1.2, 1, e) * (1 + 0.12 * u);
       ctx.scale(sc, sc);
       setFont(ctx, F.display, size);
-      const L = layout(ctx, m.k, 0, 'center', m.st === 'huge' ? -20 : 0);
+      let L = layout(ctx, m.k, 0, 'center', m.st === 'huge' ? -20 : 0);
+      const maxW = m.st === 'huge' ? 1500 : 1560; // 긴 단어(영문 등)는 화면 폭에 맞춰 줄인다
+      if (L.total > maxW) {
+        size = Math.floor((size * maxW) / L.total);
+        setFont(ctx, F.display, size);
+        L = layout(ctx, m.k, 0, 'center', m.st === 'huge' ? -20 : 0);
+      }
       const drawWord = (o) => {
         for (const g of L) glyph(ctx, g.ch, g.x, 0, o);
       };
@@ -1285,7 +1293,7 @@
     // 영문 모노 라인 (타자)
     setFont(ctx, F.mono, 20, 700);
     const LE = layout(ctx, T.eng, cx, 'center', 5);
-    const nE = Math.floor(inv(b(2.4), b(3.1), lt) * LE.length);
+    const nE = Math.floor(inv(b((T.engTyping || [2.4, 3.1])[0]), b((T.engTyping || [2.4, 3.1])[1]), lt) * LE.length);
     for (const g of LE) if (g.i < nE) glyph(ctx, g.ch, g.x, 822, { fill: C.acid });
     if (nE > 0 && nE < LE.length) {
       ctx.fillStyle = C.acid;
@@ -1471,6 +1479,9 @@
     RGB = Object.fromEntries(Object.entries(C).map(([k, v]) => [k, hexRgb(v)]));
     T = ct.text;
     TAGS = ct.shapeTags;
+    // 언어별 콘텐츠가 글자 타이핑 큐(글자 수·간격)와 섹션 제목을 바꿀 수 있다. audio.py 도 같은 값을 읽는다
+    if (ct.typing) TL.cues.typing = ct.typing;
+    if (ct.sceneTitles) TL.scenes.forEach((sc, i) => (sc.title = ct.sceneTitles[i] ?? sc.title));
     const introR = rng(7);
     flyB = [...T.b].map(() => ({
       dx: (introR() - 0.5) * 1500,
@@ -1485,7 +1496,8 @@
   // ───────────────────────── boot
   async function boot() {
     TL = await (await fetch('timeline.json')).json();
-    applyContent(await (await fetch('content.json')).json());
+    const contentFile = new URLSearchParams(location.search).get('content') || 'content.json';
+    applyContent(await (await fetch(contentFile)).json());
     W = TL.width;
     H = TL.height;
     FPS = TL.fps;

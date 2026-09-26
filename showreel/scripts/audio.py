@@ -4,7 +4,10 @@
 모든 소리가 화면의 사건과 같은 샘플에 떨어지게 한다.
 
     python3 scripts/audio.py            → out/audio.wav (48kHz, 16bit, 스테레오)
+    python3 scripts/audio.py --content src/content.en.json --out out/audio-en.wav
+      (콘텐츠의 typing 큐가 있으면 글자 틱을 그 글자 수·간격으로 맞춘다)
 """
+import argparse
 import json
 import os
 import wave
@@ -12,8 +15,16 @@ import wave
 import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ap = argparse.ArgumentParser()
+ap.add_argument("--content", default="src/content.json")
+ap.add_argument("--out", default="out/audio.wav")
+ARGS = ap.parse_args()
+
 TL = json.load(open(os.path.join(ROOT, "src/timeline.json"), encoding="utf-8"))
 CUE = TL["cues"]
+_content = json.load(open(os.path.join(ROOT, ARGS.content), encoding="utf-8"))
+if _content.get("typing"):
+    CUE["typing"] = _content["typing"]
 
 SR = 48000
 DUR = TL["duration"]
@@ -410,7 +421,7 @@ fade_start = DUR - 0.45
 fi = int(fade_start * SR)
 mix[:, fi:] *= np.cos(np.linspace(0, np.pi / 2, N - fi)) ** 2
 
-out = os.path.join(ROOT, "out/audio.wav")
+out = os.path.join(ROOT, ARGS.out)
 os.makedirs(os.path.dirname(out), exist_ok=True)
 pcm = (np.clip(mix.T, -1, 1) * 32767).astype("<i2")
 with wave.open(out, "wb") as w:

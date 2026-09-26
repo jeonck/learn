@@ -3,6 +3,7 @@
 //   node scripts/render.mjs --draft                초안: 960×540·30fps·서브프레임 1장 → out/draft.mp4
 //   node scripts/render.mjs --scene space          한 장면만 (timeline.json 의 scene id) → out/scene-space.mp4
 //   node scripts/render.mjs --stills 1.2,3.9       특정 시점 스틸 → out/stills/*.png (--draft 와 같이 쓰면 저해상도)
+//   node scripts/render.mjs --content content.en.json  다른 언어·내용 (src/ 안의 파일) → 출력명에 -en
 //   옵션: --audio wav (같은 인코딩에서 먹싱)  --crf N  --preset P  --scale S  --fps N
 //         --dir 스틸폴더  --workers N  --samples N  --from F  --to F (출력 fps 기준 프레임)  --out 경로
 import http from 'node:http';
@@ -41,9 +42,17 @@ if (args.scene) {
 }
 const FROM = Number(args.from || (sceneRange ? sceneRange[0] : 0));
 const TO = Number(args.to || (sceneRange ? sceneRange[1] : TOTAL));
+// --content content.en.json → 기본 출력 파일명에 -en 이 붙는다
+const CONTENT = String(args.content || 'content.json');
+const SUFFIX = CONTENT === 'content.json' ? '' : '-' + CONTENT.replace(/^content\.?/, '').replace(/\.json$/, '');
 const OUT = path.resolve(
   ROOT,
-  args.out || (args.scene ? `out/scene-${args.scene}${DRAFT ? '-draft' : ''}.mp4` : DRAFT ? 'out/draft.mp4' : 'out/video.mp4')
+  args.out ||
+    (args.scene
+      ? `out/scene-${args.scene}${SUFFIX}${DRAFT ? '-draft' : ''}.mp4`
+      : DRAFT
+        ? `out/draft${SUFFIX}.mp4`
+        : `out/video${SUFFIX}.mp4`)
 );
 const AUDIO = args.audio ? path.resolve(ROOT, String(args.audio)) : null;
 
@@ -80,7 +89,7 @@ function serve() {
 async function openPage(browser, port) {
   const page = await browser.newPage({ viewport: { width: TL.width, height: TL.height } });
   page.on('pageerror', (e) => console.error('[page]', e.message));
-  await page.goto(`http://127.0.0.1:${port}/src/index.html?mode=render&scale=${SCALE}`);
+  await page.goto(`http://127.0.0.1:${port}/src/index.html?mode=render&scale=${SCALE}&content=${encodeURIComponent(CONTENT)}`);
   await page.waitForFunction(() => window.REEL_READY || window.REEL_ERROR, null, { timeout: 60000 });
   const err = await page.evaluate(() => window.REEL_ERROR);
   if (err) throw new Error(err);
