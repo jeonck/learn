@@ -14,9 +14,9 @@
 7 CI/CD pipelines modernized, 30+ infra incidents coordinated, 핵심 기술 스택, 2009 → 2026 경력 흐름.
 공개 저장소라 연락처(전화·이메일·주소)와 체류 자격은 넣지 않았다.
 
-[![CK Jeon — Platform Reel](dist/poster-en.jpg)](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel-en.mp4)
+[![CK Jeon — Platform Reel](dist/poster-en.jpg)](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel-en.mp4)
 
-⬇ [showreel-en.mp4 다운로드](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel-en.mp4)
+▶ [영상 보기](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel-en.mp4) · ⬇ [MP4 다운로드 (18MB)](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel-en.mp4)
 
 ![English contact sheet](dist/contact-sheet-en.jpg)
 
