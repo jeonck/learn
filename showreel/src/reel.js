@@ -1162,7 +1162,11 @@
     type: Math.floor(endR() * 3),
     col: ['coral', 'acid', 'cobalt', 'paper'][Math.floor(endR() * 4)],
   }));
-  const DUST = Array.from({ length: 70 }, () => [endR() * W, endR() * H, 0.3 + endR() * 0.7, endR() * TAU]);
+  // W·H 가 정해진 뒤(boot)에 채운다. 모듈 로드 시점에 만들면 좌표가 전부 NaN 이 되어 그려지지 않는다
+  const DUST = [];
+  function buildDust() {
+    for (let i = 0; i < 70; i++) DUST.push([endR() * W, endR() * H, 0.3 + endR() * 0.7, endR() * TAU]);
+  }
 
   function miniShape(ctx, type, x, y, s, rot, col) {
     ctx.save();
@@ -1495,6 +1499,7 @@
     ]);
     await document.fonts.ready;
     buildPoints();
+    buildDust();
 
     const q = new URLSearchParams(location.search);
     SCALE = parseFloat(q.get('scale') || '1');
