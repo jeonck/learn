@@ -6,4 +6,4 @@
 
 [![Claude 모션 쇼릴 — 클릭해서 재생](showreel/dist/poster.jpg)](https://github.com/jeonck/learn/blob/main/showreel/dist/showreel.mp4)
 
-▶ [영상 보기](https://github.com/jeonck/learn/blob/main/showreel/dist/showreel.mp4) · ⬇ [MP4 다운로드 (19MB)](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel.mp4) · [만든 방법](showreel/README.md)
+▶ [영상 보기](https://github.com/jeonck/learn/blob/main/showreel/dist/showreel.mp4) · ⬇ [MP4 다운로드 (19MB)](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel.mp4) · [만든 방법](showreel/README.md) · [프롬프트 템플릿](showreel/README.md#비슷한-영상을-만들기-위한-프롬프트-템플릿)
