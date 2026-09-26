@@ -2,9 +2,9 @@
 
 15초, 1920×1080, 60fps 한글 모션그래픽 쇼릴. 영상과 사운드를 모두 코드로 만들었다.
 
-[![Claude 모션 쇼릴 — 클릭해서 재생](dist/poster.jpg)](https://github.com/jeonck/learn/blob/main/showreel/dist/showreel.mp4)
+[![Claude 모션 쇼릴 — 클릭해서 재생](dist/poster.jpg)](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel.mp4)
 
-▶ [영상 보기](https://github.com/jeonck/learn/blob/main/showreel/dist/showreel.mp4) · ⬇ [MP4 다운로드 (19MB)](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel.mp4) · 📘 [제작 과정 유스케이스](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/)
+▶ [영상 보기](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel.mp4) · ⬇ [MP4 다운로드 (19MB)](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel.mp4) · 📘 [제작 과정 유스케이스](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/)
 
 ![컨택트 시트](dist/contact-sheet.jpg)
 
