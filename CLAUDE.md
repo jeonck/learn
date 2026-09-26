@@ -39,4 +39,4 @@ via spectrogram/RMS inspection.
   `drawFrame`; `fx(t)` produces the per-frame uniforms for the WebGL pass in `src/post.js`.
 - Timings inside scenes are expressed in beats via `b(n)` so edits stay on the grid.
 - `node_modules/` and `out/` are git-ignored; only sources and the deliverables in `dist/` (the MP4, its
-  contact sheet, and the `tech-stack.png` pipeline diagram) are committed.
+  poster and contact sheet, and the `tech-stack.png` pipeline diagram) are committed.
