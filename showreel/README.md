@@ -8,6 +8,23 @@
 
 ![컨택트 시트](dist/contact-sheet.jpg)
 
+## English version — CK Jeon career reel
+
+같은 엔진에 `src/content.en.json` 만 바꿔 끼운 영문판. 이력서의 사실만 쓴다 — 12+ years, 99.99% availability,
+7 CI/CD pipelines modernized, 30+ infra incidents coordinated, 핵심 기술 스택, 2009 → 2026 경력 흐름.
+공개 저장소라 연락처(전화·이메일·주소)와 체류 자격은 넣지 않았다.
+
+[![CK Jeon — Platform Reel](dist/poster-en.jpg)](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel-en.mp4)
+
+⬇ [showreel-en.mp4 다운로드](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel-en.mp4)
+
+![English contact sheet](dist/contact-sheet-en.jpg)
+
+```bash
+npm run draft -- --content content.en.json   # 초안 → out/draft-en.mp4 (약 80초)
+npm run build -- --content content.en.json   # 최종 → dist/showreel-en.mp4
+```
+
 ## 구성 (128 BPM, 4박 = 1.875초 단위)
 
 | 시간 | 섹션 | 보여주는 기술 |
@@ -78,6 +95,12 @@ npm run audio                                        # 사운드만 다시 합�
 | `text.chartValue` | 라인 차트 값 태그 형식 (접두·배율·접미) |
 | `chart.bars` / `chart.line` | 막대 12개·라인 12점, 0~1 비율 |
 | `shapeTags` | 셰이프 장면의 동작 라벨 |
+| `typing` (선택) | 글자 타이핑 큐 덮어쓰기. 문구 길이가 바뀌면 간격을 맞춘다 — `audio.py` 도 같은 값으로 틱을 친다 |
+| `sceneTitles` (선택) | 좌하단 섹션 라벨 7개 |
+| `text.bandHighlight`, `text.engTyping`, `text.chartValue.labels`·`axis` (선택) | 밴드 강조 글자 범위, 엔드 카드 영문 줄 타이핑 박자, 차트 점별 라벨·숫자 축 숨김 |
+
+다른 언어·다른 사람 버전은 `src/content.<이름>.json` 을 만들고 `--content content.<이름>.json` 으로 빌드한다.
+출력 파일명에 `-<이름>` 이 붙는다 (`dist/showreel-en.mp4`, `out/draft-en.mp4`, `out/audio-en.wav`).
 
 타이밍(BPM·장면 시작 박자·효과음 큐)은 `src/timeline.json`, 그리는 방법은 `src/reel.js` 에 있다.
 
