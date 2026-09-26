@@ -61,5 +61,5 @@ via spectrogram/RMS inspection.
   must multiply by `SCALE`.
 - Output is not bit-exact between runs: SwiftShader accumulation differs by at most 1/255 on a few
   hundred pixels. Compare renders with a tolerance, not a hash.
-- `node_modules/` and `out/` are git-ignored; only sources and the deliverables in `dist/` (the MP4, its
+- `node_modules/` and `out/` are git-ignored; only sources, `README.md`/`README.en.md`, and the deliverables in `dist/` (the MP4, its
   poster and contact sheet, and the `tech-stack.png` pipeline diagram) are committed.
