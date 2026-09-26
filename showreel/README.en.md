@@ -6,7 +6,7 @@ A 15-second, 1920×1080, 60fps motion-graphics career reel. Every frame and ever
 
 [![CK Jeon — Platform Engineering Reel, click to play](dist/poster-en.jpg)](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel-en.mp4)
 
-▶ [Watch the reel](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel-en.mp4) · ⬇ [Download MP4 (18 MB)](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel-en.mp4) · 📘 [How it was made (Korean)](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/)
+▶ [Watch the reel](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel-en.mp4) · ⬇ [Download MP4 (18 MB)](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel-en.mp4) · 📘 [How it was made — AI Usecases (Korean)](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/#같은-엔진으로-영문-경력-쇼릴--내용만-바꿔-한-편-더)
 
 ![Contact sheet — 12 frames from the reel](dist/contact-sheet-en.jpg)
 

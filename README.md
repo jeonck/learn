@@ -14,7 +14,7 @@
 
 [![CK Jeon — Platform Engineering Reel, click to play](showreel/dist/poster-en.jpg)](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel-en.mp4)
 
-▶ [Watch the reel](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel-en.mp4) · ⬇ [Download MP4 (18MB)](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel-en.mp4) · [English README](showreel/README.en.md)
+▶ [Watch the reel](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel-en.mp4) · ⬇ [Download MP4 (18MB)](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel-en.mp4) · [English README](showreel/README.en.md) · 📘 [How it was made (AI Usecases)](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/#같은-엔진으로-영문-경력-쇼릴--내용만-바꿔-한-편-더)
 
 📘 제작 과정 유스케이스: [Claude Code로 15초 한글 모션그래픽 쇼릴 만들기 — AI Usecases](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/)
 환경 점검부터 스틸 검수, 용량 문제 해결까지 단계별 캡처와 실제 소요 시간으로 정리했습니다.
