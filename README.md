@@ -6,7 +6,7 @@
 
 [![Claude 모션 쇼릴 — 클릭해서 재생](showreel/dist/poster.jpg)](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel.mp4)
 
-▶ [영상 보기](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel.mp4) · ⬇ [MP4 다운로드 (17MB)](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel.mp4) · [만든 방법](showreel/README.md) · [프롬프트 템플릿](showreel/README.md#비슷한-영상을-만들기-위한-프롬프트-템플릿) · 🎬 [프롬프트 쇼케이스 (데모 10종)](prompt/README.md)
+▶ [영상 보기](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel.mp4) · ⬇ [MP4 다운로드 (17MB)](https://github.com/jeonck/learn/raw/main/showreel/dist/showreel.mp4) · [만든 방법](showreel/README.md) · [프롬프트 템플릿](showreel/README.md#비슷한-영상을-만들기-위한-프롬프트-템플릿) · 🎬 [프롬프트 쇼케이스 (데모 10종)](showreel/prompt/README.md)
 
 ## 🇺🇸 [CK Jeon — Platform Engineering Reel](showreel/README.en.md)
 

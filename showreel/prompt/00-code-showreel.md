@@ -5,7 +5,7 @@
 | 영상 | ▶ [한글판](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel.mp4) · ▶ [영문 경력판](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel-en.mp4) |
 | 도구 | Claude Code (Canvas 2D + WebGL, numpy 사운드) |
 | 결과 | 15초, 1920×1080, 60fps, 128 BPM, 외부 에셋 없음 |
-| 소스 | [`showreel/`](../showreel/) |
+| 소스 | [`showreel/`](../) |
 
 ## 이런 영상
 
