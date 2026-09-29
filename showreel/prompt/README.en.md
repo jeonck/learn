@@ -36,6 +36,10 @@ delegate ◀──────────────────────�
 - Give content as material: a portfolio (04), the real app (03), a material sheet (05), attached files (09), a finished image or PSD (10), your past work (11), finished cards (12).
 - Don't aim for one shot: get the outline first, then refine with short notes (03, 09).
 
+## More examples
+
+- [Skillry — Opus 5.5 videos](https://skillry.dev/ai-videos/opus-5-5): a gallery of 389 viral videos made with Claude Opus 5.5 (223 motion graphics, plus explainers, 3D scenes and games), each with its original prompt and a live remake. Mostly non-Korean examples, so it complements this showcase.
+
 ## Doc format
 
 Every demo doc follows the same order: source & video → what it looks like → prompt to reproduce → what to change → why it works.
