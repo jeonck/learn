@@ -64,5 +64,5 @@ via spectrogram/RMS inspection.
 - `node_modules/` and `out/` are git-ignored; only sources, `README.md`/`README.en.md`, and the deliverables in `dist/` (the MP4, its
   poster and contact sheet, and the `tech-stack.png` pipeline diagram) are committed.
 - `showreel/prompt/` is a prompt showcase (docs only, no code): one reproducible demo per showreel style
-  collected from Threads, indexed by `README.md`/`README.en.md`. Demo prompts are rewritten from the originals,
-  not copied, with a link to the source post and its video.
+  collected from Threads, indexed by `README.md`/`README.en.md`. Demo prompts are rewritten from the originals (09 keeps its shared template as is),
+  with a link to the source post and its video.
