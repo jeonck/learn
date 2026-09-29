@@ -39,6 +39,8 @@ npm run build -- --content content.en.json   # final 1080p60 → dist/showreel-e
 
 ## Showreel prompts shared on Threads (collected 2026-09)
 
+> 🎬 Reproducible prompt docs for each example, with video links, are in the [prompt showcase](../prompt/README.md) (Korean).
+
 Examples found on Threads by searching "쇼릴" (showreel), "쇼릴 프롬프트" and "모션그래픽 프롬프트", picked because the
 prompt was public and the result was well received. Full prompts are behind each link; only the gist and why it works are here.
 
