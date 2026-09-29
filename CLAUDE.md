@@ -63,6 +63,8 @@ via spectrogram/RMS inspection.
   hundred pixels. Compare renders with a tolerance, not a hash.
 - `node_modules/` and `out/` are git-ignored; only sources, `README.md`/`README.en.md`, and the deliverables in `dist/` (the MP4, its
   poster and contact sheet, and the `tech-stack.png` pipeline diagram) are committed.
-- `showreel/prompt/` is a prompt showcase (docs only, no code): one reproducible demo per showreel style
-  collected from Threads, indexed by `README.md`/`README.en.md`. Demo prompts are rewritten from the originals (09 keeps its shared template as is),
-  with a link to the source post and its video.
+- `showreel/prompt/` is a prompt showcase (docs only, no code): 13 reproducible demos (00–12), one per showreel style,
+  collected from Threads, each as a Korean `NN-*.md` plus English `NN-*.en.md`, indexed by `README.md`/`README.en.md`.
+  Demo prompts are rewritten from the originals (09 keeps its shared template as is, translated in English), with a link
+  to the source post and its video. Adding a demo means updating both index tables, the control-axis line, and the
+  demo count in the root `README.md` and here.
