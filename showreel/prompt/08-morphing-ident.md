@@ -1,5 +1,7 @@
 # 08. 도형·동물·글자가 이어지는 모핑 아이덴트 (영상 모델용)
 
+🇺🇸 [English](08-morphing-ident.en.md)
+
 | 항목 | 내용 |
 | --- | --- |
 | 원본·영상 | ▶ [@hanpro_automation 스레드](https://www.threads.com/@hanpro_automation/post/DcSCphCm0Vs) (프롬프트 전문은 답글 1~4) · 원 프롬프트 작성자 [@jh_aicafe](https://www.threads.com/@jh_aicafe) |

@@ -1,5 +1,7 @@
 # 09. 자료 첨부형 홍보 영상
 
+🇺🇸 [English](09-attached-data-promo.en.md)
+
 | 항목 | 내용 |
 | --- | --- |
 | 원본·영상 | ▶ [@english.is.daisy 스레드](https://www.threads.com/@english.is.daisy/post/Dd0fWrJiFXP) — 프롬프트는 작성자 고정 답글 |

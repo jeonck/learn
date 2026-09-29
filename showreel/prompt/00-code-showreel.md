@@ -1,5 +1,7 @@
 # 00. 코드로 만든 한글 모션 쇼릴 (이 저장소)
 
+🇺🇸 [English](00-code-showreel.en.md)
+
 | 항목 | 내용 |
 | --- | --- |
 | 영상 | ▶ [한글판](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel.mp4) · ▶ [영문 경력판](https://aiusecases.metacog.co.kr/docs/usecases/media/code-motion-showreel-claude-code/showreel-en.mp4) |

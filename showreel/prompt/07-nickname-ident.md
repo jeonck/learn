@@ -1,5 +1,7 @@
 # 07. 닉네임 + 아이콘 하나로 만드는 개인 아이덴트
 
+🇺🇸 [English](07-nickname-ident.en.md)
+
 | 항목 | 내용 |
 | --- | --- |
 | 원본·영상 | ▶ [@ssaengcho 스레드](https://www.threads.com/@ssaengcho/post/Dc8NAi3GsRj) (조회 2만, 좋아요 280) |

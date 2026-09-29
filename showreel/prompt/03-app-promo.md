@@ -1,5 +1,7 @@
 # 03. 앱 홍보 영상 (아이폰 광고 티저 톤)
 
+🇺🇸 [English](03-app-promo.en.md)
+
 | 항목 | 내용 |
 | --- | --- |
 | 원본·영상 | ▶ [@go_tworavel 스레드](https://www.threads.com/@go_tworavel/post/Ddq5DmME47e) (조회 11만, 좋아요 958) — 프롬프트는 작성자 답글 |

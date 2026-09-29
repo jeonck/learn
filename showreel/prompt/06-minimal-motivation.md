@@ -1,5 +1,7 @@
 # 06. 흑백 + 포인트 1색 미니멀 숏폼
 
+🇺🇸 [English](06-minimal-motivation.en.md)
+
 | 항목 | 내용 |
 | --- | --- |
 | 원본·영상 | ▶ [@kirin.cookie 스레드](https://www.threads.com/@kirin.cookie/post/Dc8V7Tljbdn) |

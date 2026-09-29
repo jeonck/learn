@@ -1,5 +1,7 @@
 # 02. 3D 카드 덱 브랜드 쇼릴 (Claude + Blender)
 
+🇺🇸 [English](02-3d-brand-showreel.en.md)
+
 | 항목 | 내용 |
 | --- | --- |
 | 원본·영상 | ▶ [@ai_sync_club 스레드](https://www.threads.com/@ai_sync_club/post/Ddt00M6k8sD) (조회 6.8천, 좋아요 243) · 프롬프트 전문: [싱크마켓](https://aisyncclub.com/market/b317891e-9a53-4ea6-bcb4-d734badf85dc) (무료 회원 로그인) |

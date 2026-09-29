@@ -1,5 +1,7 @@
 # 01. 한 문장 원샷 쇼릴
 
+🇺🇸 [English](01-oneshot-showreel.en.md)
+
 | 항목 | 내용 |
 | --- | --- |
 | 원본·영상 | ▶ [@pinksoldiersvlog 스레드](https://www.threads.com/@pinksoldiersvlog/post/Ddt090_E5KV) (조회 2.8만, 좋아요 235) |

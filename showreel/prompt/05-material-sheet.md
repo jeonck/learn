@@ -1,5 +1,7 @@
 # 05. 재료 시트로 스타일 고정
 
+🇺🇸 [English](05-material-sheet.en.md)
+
 | 항목 | 내용 |
 | --- | --- |
 | 원본·영상 | ▶ [@prompt_what 스레드](https://www.threads.com/@prompt_what/post/DdOAI1cis07) (조회 7.3만, 좋아요 413) |

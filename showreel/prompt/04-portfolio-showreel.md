@@ -1,5 +1,7 @@
 # 04. 포트폴리오 링크로 만드는 자기소개 쇼릴
 
+🇺🇸 [English](04-portfolio-showreel.en.md)
+
 | 항목 | 내용 |
 | --- | --- |
 | 원본·영상 | ▶ [@doeun_company 스레드](https://www.threads.com/@doeun_company/post/DdwJM-yCI5u) |
