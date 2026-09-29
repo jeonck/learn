@@ -20,17 +20,19 @@ Threads에 공유된 사례(2026-08~09)와 이 저장소의 쇼릴을 모았다.
 | 08 | [모핑 아이덴트](08-morphing-ident.md) | 영상 생성 모델로 도형·동물·글자 변형 연출 | Google Flow / MiniMax H3 | [▶](https://www.threads.com/@hanpro_automation/post/DcSCphCm0Vs) |
 | 09 | [자료 첨부형 홍보 영상](09-attached-data-promo.md) | 사람·강의·가게·행사를 자료 기반으로 소개할 때 | Claude | [▶](https://www.threads.com/@english.is.daisy/post/Dd0fWrJiFXP) |
 | 10 | [이미지 먼저, 모션은 나중에](10-image-to-motion.md) | 디자인한 이미지·PSD를 그대로 살려 움직이고 싶을 때 | Claude Opus 5.5 | [▶](https://www.threads.com/@ssaengcho/post/Dd1QcoSGr_9) |
+| 11 | [내 작업을 레퍼런스로 시리즈 확장](11-reference-series.md) | 이미 만든 영상과 같은 톤으로 다음 편을 만들 때 | Claude Opus 5.5 | [▶](https://www.threads.com/@nono_ai_archive/post/DdtM0rejYp4) |
+| 12 | [완성 카드를 키프레임으로 쓰는 뮤비](12-card-keyframe-mv.md) | 캐릭터·글자가 등장하는 영상 모델 작품에 음악까지 맞출 때 | Claude Code + MiniMax H3 + Suno | [▶](https://www.threads.com/@crome.ai/post/DcdiT0uDUcf) |
 
 ## 통제 수준으로 고르기
 
 ```
 맡김 ◀──────────────────────────────────────────▶ 통제
- 01 원샷   07 닉네임   06 미니멀   04 포트폴리오   09 자료 첨부   03 앱 홍보   05 재료 시트   10 이미지 먼저   02 3D 브랜드 / 08 모핑   00 코드 쇼릴
+ 01 원샷   07 닉네임   06 미니멀   04 포트폴리오   09 자료 첨부   03 앱 홍보   11 내 레퍼런스   05 재료 시트   10 이미지 먼저   12 카드 키프레임   02 3D 브랜드 / 08 모핑   00 코드 쇼릴
 ```
 
 - 짧게 쓰고 목표를 높이면 모델이 알아서 잘 만든다(01, 07). 결과는 매번 다르다.
 - 브랜드·사실이 중요하면 BPM·샷 순서·팔레트·문구를 고정한다(02, 08, 00).
-- 내용은 자료로 준다: 포트폴리오(04), 실제 앱(03), 재료 시트(05), 첨부 자료(09), 완성 이미지·PSD(10).
+- 내용은 자료로 준다: 포트폴리오(04), 실제 앱(03), 재료 시트(05), 첨부 자료(09), 완성 이미지·PSD(10), 내 이전 작업(11), 완성 카드(12).
 - 한 번에 끝내려 하지 말고 구성안을 먼저 받은 뒤 짧은 피드백으로 다듬는다(03, 09).
 
 ## 문서 형식

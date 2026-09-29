@@ -21,17 +21,19 @@ Every demo doc also has a Korean version, linked at its top.
 | 08 | [Morphing ident](08-morphing-ident.en.md) | Shapes, animals and letters morphing, with a video-generation model | Google Flow / MiniMax H3 | [▶](https://www.threads.com/@hanpro_automation/post/DcSCphCm0Vs) |
 | 09 | [Promo from attached material](09-attached-data-promo.en.md) | Introducing a person, class, shop or event from your own material | Claude | [▶](https://www.threads.com/@english.is.daisy/post/Dd0fWrJiFXP) |
 | 10 | [Image first, motion second](10-image-to-motion.en.md) | To animate a designed image or PSD as it is | Claude Opus 5.5 | [▶](https://www.threads.com/@ssaengcho/post/Dd1QcoSGr_9) |
+| 11 | [Extend a series from your own work](11-reference-series.en.md) | The next episode in the same tone as videos you've made | Claude Opus 5.5 | [▶](https://www.threads.com/@nono_ai_archive/post/DdtM0rejYp4) |
+| 12 | [MV with finished cards as keyframes](12-card-keyframe-mv.en.md) | A video-model piece with characters and lettering, with music fitted | Claude Code + MiniMax H3 + Suno | [▶](https://www.threads.com/@crome.ai/post/DcdiT0uDUcf) |
 
 ## Pick by control
 
 ```
 delegate ◀──────────────────────────────────────────▶ control
- 01 one-shot   07 nickname   06 minimal   04 portfolio   09 attached   03 app promo   05 material sheet   10 image first   02 3D brand / 08 morphing   00 code reel
+ 01 one-shot   07 nickname   06 minimal   04 portfolio   09 attached   03 app promo   11 own references   05 material sheet   10 image first   12 card keyframes   02 3D brand / 08 morphing   00 code reel
 ```
 
 - Write short and set a high bar, and the model does well on its own (01, 07). Results differ every run.
 - When brand or facts matter, pin BPM, shot order, palette and copy (02, 08, 00).
-- Give content as material: a portfolio (04), the real app (03), a material sheet (05), attached files (09), a finished image or PSD (10).
+- Give content as material: a portfolio (04), the real app (03), a material sheet (05), attached files (09), a finished image or PSD (10), your past work (11), finished cards (12).
 - Don't aim for one shot: get the outline first, then refine with short notes (03, 09).
 
 ## Doc format
